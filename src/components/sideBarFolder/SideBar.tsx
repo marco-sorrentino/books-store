@@ -3,6 +3,8 @@ import { BiHomeHeart } from "react-icons/bi";
 import { MdMenuBook } from "react-icons/md";
 import { BsEyeglasses } from "react-icons/bs";
 import { MdTurnedInNot } from "react-icons/md";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const SideBar = () => {
   return (
@@ -12,9 +14,11 @@ export const SideBar = () => {
       </div>
       <div>
         <div>
-          <div className="bgIcon">
-            <BiHomeHeart className="iconSideBar" />
-          </div>
+          <Link className="linkNav" to={"/"}>
+            <div className="bgIcon">
+              <BiHomeHeart className="iconSideBar" />
+            </div>
+          </Link>
         </div>
         <div>
           <div className="bgIcon">
