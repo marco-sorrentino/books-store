@@ -41,10 +41,13 @@ export const NewReleases = () => {
 
   return (
     <>
-      <div className="ps-4 pt-4">
+      <div className="px-4 pt-4 d-flex align-items-center justify-content-between">
         <p className="homepageTitle">New Releases</p>
+        <div
+          style={{ width: "68%", height: "2px", backgroundColor: "red" }}
+        ></div>
       </div>
-      <div className="ps-4 pt-2 ">
+      <div className="px-4 pt-2 ">
         <Row className="rowBooks">
           {newBook &&
             newBook.map((el, i) => (
