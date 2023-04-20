@@ -14,6 +14,7 @@ export const SingleBook = ({ cover, title, authors }: SingleBookProps) => {
           <img className="coverBooks" src={cover} alt="cover" />
           <p className="booksTitles mt-2">{title.substring(0, 21) + " ..."}</p>
           <p className="authorTitles">{authors}</p>
+          <p className="ctaOnHover">View More</p>
         </div>
       </Col>
     </>

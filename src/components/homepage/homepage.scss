@@ -17,8 +17,21 @@
   cursor: pointer;
   transition: transform ease-in-out 0.2s;
 
+  .ctaOnHover {
+    text-transform: uppercase;
+    color: #fa454b;
+    font-weight: bold;
+    font-size: 0.58em;
+    letter-spacing: 1.1px;
+    display: none;
+    transition: all ease-in-out 1s;
+  }
+
   &:hover {
     transform: scale(1.1);
+    .ctaOnHover {
+      display: block;
+    }
   }
 }
 
