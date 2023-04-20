@@ -1,10 +1,22 @@
 import { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import "./homepage.scss";
+import { SingleBook } from "./SingleBook";
+
+interface Book {
+  id: string;
+  volumeInfo: {
+    authors: string;
+    imageLinks: {
+      thumbnail: string;
+    };
+    title: string;
+  };
+}
 
 export const NewReleases = () => {
-  const [newBook, setNewBook] = useState([]);
-
+  const [newBook, setNewBook] = useState<Book[]>([]);
+  console.log(newBook);
   const key = "AIzaSyBPPH3NK6VX2qM400hCqOvQOt0deBt1HX4";
 
   useEffect(() => {
@@ -14,13 +26,13 @@ export const NewReleases = () => {
   const getData = async () => {
     try {
       let res = await fetch(
-        "https://www.googleapis.com/books/v1/volumes?q=inauthor:&maxResults=10&orderBy=newest&printType=books&filter=paid-ebooks&langRestrict=it&langRestrict=en&key=" +
+        "https://www.googleapis.com/books/v1/volumes?q=subject:&orderBy=newest&maxResults=5&key=" +
           key
       );
 
       if (res.ok) {
         let data = await res.json();
-        console.log(data);
+        setNewBook(data.items);
       }
     } catch (error) {
       console.log(error);
@@ -32,8 +44,17 @@ export const NewReleases = () => {
       <div className="ps-4 pt-4">
         <p className="homepageTitle">New Releases</p>
       </div>
-      <div>
-        <Row></Row>
+      <div className="ps-4 pt-2 ">
+        <Row className="rowBooks">
+          {newBook &&
+            newBook.map((el, i) => (
+              <SingleBook
+                title={el.volumeInfo.title}
+                cover={el?.volumeInfo?.imageLinks.thumbnail}
+                authors={el.volumeInfo.authors}
+              />
+            ))}
+        </Row>
       </div>
     </>
   );

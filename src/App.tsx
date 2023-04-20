@@ -14,7 +14,7 @@ function App() {
             <Col className="p-0" md={1} xs={2}>
               <SideBar />
             </Col>
-            <Col>
+            <Col className="p-0">
               <Routes>
                 <Route path="/" element={<HomePage />} />
               </Routes>

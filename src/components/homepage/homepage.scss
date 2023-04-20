@@ -1,5 +1,42 @@
+.homepage {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.leftSide {
+  background-color: #fdf9f7;
+}
+
 .homepageTitle {
   font-size: 2.5em;
   font-style: italic;
   letter-spacing: -0.14em;
+}
+
+.everySingleCard {
+  cursor: pointer;
+  transition: transform ease-in-out 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.coverBooks {
+  width: 110px;
+  height: 170px;
+  border-radius: 3px;
+  box-shadow: -17px 18px 24px -12px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: -17px 18px 24px -12px rgba(0, 0, 0, 0.5);
+}
+
+.booksTitles {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.authorTitles {
+  font-size: 0.64em;
+  font-weight: bold;
+  color: rgb(125, 125, 125);
 }
