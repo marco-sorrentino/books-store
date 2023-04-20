@@ -1,4 +1,5 @@
 import { Col } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 interface SingleBookProps {
   cover: string;
@@ -7,9 +8,18 @@ interface SingleBookProps {
 }
 
 export const SingleBook = ({ cover, title, authors }: SingleBookProps) => {
+  const dispatch = useDispatch();
   return (
     <>
-      <Col>
+      <Col
+        onClick={() =>
+          dispatch({
+            type: "GET_DETAILS",
+            payload: { cover, title, authors },
+          })
+        }
+        className="mt-3 mt-md-0"
+      >
         <div className="everySingleCard">
           <img className="coverBooks" src={cover} alt="cover" />
           <p className="booksTitles mt-2">{title.substring(0, 21) + " ..."}</p>
