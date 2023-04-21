@@ -15,7 +15,7 @@ export const BestReview = () => {
   const getReview = async () => {
     try {
       let res = await fetch(
-        "https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/volumes?&maxResults=5&key=" +
+        "https://www.googleapis.com/books/v1/volumes?q=fantasy&orderBy=relevance&maxResults=5&key=" +
           key
       );
 
