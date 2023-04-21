@@ -1,8 +1,5 @@
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-}
+import { Book } from "../../types/book";
+import { GET_DETAILS } from "../action";
 
 interface State {
   books: Book[];
@@ -19,7 +16,7 @@ const initialState: State = {
 
 const mainReducer = (state = initialState, action: AddBookAction) => {
   switch (action.type) {
-    case "GET_DETAILS":
+    case GET_DETAILS:
       return {
         ...state,
         books: [action.payload],

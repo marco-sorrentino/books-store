@@ -1,18 +1,9 @@
 import { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
+import { Book } from "../../types/book";
+import { BookDetail } from "./BookDetail";
 import "./homepage.scss";
 import { SingleBook } from "./SingleBook";
-
-interface Book {
-  id: string;
-  volumeInfo: {
-    authors: string;
-    imageLinks: {
-      thumbnail: string;
-    };
-    title: string;
-  };
-}
 
 export const NewReleases = () => {
   const [newBook, setNewBook] = useState<Book[]>([]);
@@ -54,9 +45,11 @@ export const NewReleases = () => {
                 title={el.volumeInfo.title}
                 cover={el?.volumeInfo?.imageLinks.thumbnail}
                 authors={el.volumeInfo.authors}
+                obj={el}
               />
             ))}
         </Row>
+        <BookDetail />
       </div>
     </>
   );
