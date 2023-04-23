@@ -4,8 +4,6 @@ import {
   getDetailsAction,
   getReadsAction,
   getSavedAction,
-  GET_DETAILS,
-  GET_SAVED,
 } from "../../redux/action";
 import { SingleBookProps } from "../../types/book";
 import { BsEyeglasses } from "react-icons/bs";
