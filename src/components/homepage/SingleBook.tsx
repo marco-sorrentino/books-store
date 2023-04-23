@@ -2,6 +2,7 @@ import { Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import {
   getDetailsAction,
+  getReadsAction,
   getSavedAction,
   GET_DETAILS,
   GET_SAVED,
@@ -23,6 +24,12 @@ export const SingleBook = (props: SingleBookProps) => {
 
   const handleSaved = () => {
     dispatch(getSavedAction(props));
+  };
+
+  //Funzione per salvare su redux con DISPATCH i libri letti dall'utente
+
+  const handleReads = () => {
+    dispatch(getReadsAction(props));
   };
 
   return (
@@ -49,6 +56,7 @@ export const SingleBook = (props: SingleBookProps) => {
                 className="me-1 savingIcon"
               />
               <BsEyeglasses
+                onClick={handleReads}
                 style={{ fontSize: "1.2em" }}
                 className="savingIcon"
               />

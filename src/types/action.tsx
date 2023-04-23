@@ -9,3 +9,8 @@ export interface AddSavedAction {
   type: "GET_SAVED";
   payload: Book;
 }
+
+export interface AddReadsAction {
+  type: "GET_READS";
+  payload: Book;
+}

@@ -13,3 +13,8 @@ export const getSavedAction = (props: SingleBookProps) => ({
   type: GET_SAVED,
   payload: props,
 });
+
+export const getReadsAction = (props: SingleBookProps) => ({
+  type: GET_READS,
+  payload: props,
+});
