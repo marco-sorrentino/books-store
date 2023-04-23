@@ -3,7 +3,6 @@ import { BiHomeHeart } from "react-icons/bi";
 import { MdMenuBook } from "react-icons/md";
 import { BsEyeglasses } from "react-icons/bs";
 import { MdTurnedInNot } from "react-icons/md";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const SideBar = () => {

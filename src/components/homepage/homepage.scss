@@ -30,12 +30,16 @@
     font-size: 0.58em;
     letter-spacing: 1.1px;
     visibility: hidden;
-    transition: all ease-in-out 1s;
+  }
+
+  .savingIcon {
+    visibility: hidden;
   }
 
   &:hover {
     transform: scale(1.1);
-    .ctaOnHover {
+    .ctaOnHover,
+    .savingIcon {
       visibility: visible;
     }
   }
