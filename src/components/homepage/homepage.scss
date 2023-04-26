@@ -84,4 +84,32 @@
     box-shadow: -17px 18px 24px -12px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: -17px 18px 24px -12px rgba(0, 0, 0, 0.5);
   }
+
+  .author {
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .descr {
+    font-size: 0.83em;
+  }
+
+  .iconBookDetail {
+    font-size: 1.8em;
+    cursor: pointer;
+    color: rgb(62, 61, 61);
+  }
+
+  .circleBg {
+    background-color: #fa454b;
+    color: white;
+    height: 58px;
+    width: 58px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
 }

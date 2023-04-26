@@ -50,7 +50,7 @@ export const SingleBook = (props: SingleBookProps) => {
           alt="cover"
         />
         <p className="booksTitles mt-2">
-          {props.title.substring(0, 21) + " ..."}
+          {props?.title?.substring(0, 21) + " ..."}
         </p>
         <p className="authorTitles">{props.authors}</p>
         <div className="d-flex justify-content-between align-items-center">

@@ -12,12 +12,25 @@ export interface Book {
 }
 
 export interface SingleBookProps {
-  cover: string;
-  title: string;
-  authors: string;
-  description?: string;
+  cover?: string;
+  title?: string;
+  authors?: string;
   publishedDate?: string;
-  obj?: {};
+  obj?: {
+    id?: string;
+    saleInfo?: {
+      listPrice?: {
+        amount?: number;
+        currencyCode?: string;
+      };
+    };
+    volumeInfo?: {
+      description?: string;
+      subtitle?: string;
+      pageCount?: number;
+      publishedDate?: string;
+    };
+  };
 }
 
 export interface BookDetai {
