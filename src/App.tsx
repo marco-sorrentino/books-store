@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { BookDetail } from "./components/homepage/BookDetail";
 import { HomePage } from "./components/homepage/HomePage";
+import { FilteredSavedBooks } from "./components/saved/FilteredSavedBooks";
 import { SavedHomePage } from "./components/saved/SavedHomePage";
 import { SideBar } from "./components/sideBarFolder/SideBar";
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/saved" element={<SavedHomePage />} />
                 <Route path="/detail" element={<BookDetail />} />
+                <Route path="/:filter/" element={<FilteredSavedBooks />} />
               </Routes>
             </Col>
           </Row>
