@@ -15,12 +15,12 @@ export const BookDetail = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="h-100 boh">
+    <div className="h-100  boh">
       <Row className="m-0">
         {seeDetail &&
           seeDetail.map((el) => {
             return (
-              <Col className="p-0">
+              <Col sm={12} className="p-0">
                 <div className="boxBook px-4 py-4 d-flex align-items-start justify-content-between flex-column">
                   <div className="w-100">
                     <p className="bookTitle mb-3">{el.title}</p>
@@ -28,7 +28,7 @@ export const BookDetail = () => {
                     <div className="hrLineBookPage mt-3"></div>
                   </div>
 
-                  <div className="d-flex align-items-center">
+                  <div className="d-flex align-items-center flex-column flex-md-row">
                     <img
                       className="pt-4"
                       src={
@@ -39,36 +39,46 @@ export const BookDetail = () => {
                       }
                       alt="cover"
                     />
-                    <div className="px-4">
-                      <p className="author">{el.authors}</p>
+                    <div className="px-md-4 mt-4 mt-md-0">
+                      <p className="author mb-3">{el.authors}</p>
                       <p className="descr">
                         {el.obj?.volumeInfo?.description === undefined
                           ? "Description not avaiable"
                           : el.obj?.volumeInfo?.description?.slice(0, 1400) +
                             " ..."}
                       </p>
-                      <div className="d-flex">
-                        <div className="circleBg">
+                      <div className="d-flex mt-3">
+                        <div className="circleBg me-2">
+                          <p>Year</p>
                           <p>
                             {el.obj?.volumeInfo?.publishedDate?.slice(0, 4)}
                           </p>
                         </div>
                         <div className="circleBg">
-                          <p>{el.obj?.volumeInfo?.pageCount}</p>
+                          <p>Pages</p>
+                          <p>
+                            {el.obj?.volumeInfo?.pageCount === 0
+                              ? "N/D"
+                              : el.obj?.volumeInfo?.pageCount}
+                          </p>
                         </div>
-                        <div className="circleBg">
+                        <div className="circleBg ms-2">
+                          <p>Price €</p>
                           <p>{el.obj?.saleInfo?.listPrice?.amount}</p>
                           <p>
-                            {el.obj?.saleInfo?.listPrice?.currencyCode === "EUR"
-                              ? "€"
-                              : "N/D"}
+                            {el.obj?.saleInfo?.listPrice?.currencyCode ===
+                            "EUR" ? (
+                              <></>
+                            ) : (
+                              "N/D"
+                            )}
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="d-flex align-items-center">
+                  <div className="d-flex align-items-center mt-4">
                     <MdTurnedInNot
                       onClick={() => {
                         dispatch({
