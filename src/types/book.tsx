@@ -25,8 +25,10 @@ export interface BookDetai {
   title: string;
   authors: string;
   obj: {
+    id?: string;
     volumeInfo: {
       description: string;
+      subtitle?: string;
     };
   };
 }

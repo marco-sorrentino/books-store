@@ -63,3 +63,25 @@
   font-weight: bold;
   color: rgb(125, 125, 125);
 }
+
+.boxBook {
+  height: 100vh;
+  .bookTitle {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 29px;
+    letter-spacing: -0.14em;
+  }
+
+  .hrLineBookPage {
+    width: 100%;
+    height: 1.3px;
+    background-color: #fa454b;
+  }
+  img {
+    border-radius: 3px;
+    box-shadow: -17px 18px 24px -12px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: -17px 18px 24px -12px rgba(0, 0, 0, 0.5);
+  }
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { Book } from "../../types/book";
 import { SingleBook } from "./SingleBook";
 
@@ -37,13 +37,15 @@ export const BestReview = () => {
         <Row className="rowBooks">
           {review &&
             review.map((el, i) => (
-              <SingleBook
-                key={i}
-                title={el.volumeInfo.title}
-                cover={el?.volumeInfo?.imageLinks.thumbnail}
-                authors={el.volumeInfo.authors}
-                obj={el}
-              />
+              <Col className="mt-3 mt-md-0">
+                <SingleBook
+                  key={i}
+                  title={el.volumeInfo.title}
+                  cover={el?.volumeInfo?.imageLinks.thumbnail}
+                  authors={el.volumeInfo.authors}
+                  obj={el}
+                />
+              </Col>
             ))}
         </Row>
       </div>
