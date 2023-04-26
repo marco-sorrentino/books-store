@@ -25,7 +25,9 @@
     border-radius: 50%;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       background-color: #ff5a60;
       .iconSideBar {
         color: white;

@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { HomePage } from "./components/homepage/HomePage";
+import { SavedHomePage } from "./components/saved/SavedHomePage";
 import { SideBar } from "./components/sideBarFolder/SideBar";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Col className="p-0">
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/saved" element={<SavedHomePage />} />
               </Routes>
             </Col>
           </Row>

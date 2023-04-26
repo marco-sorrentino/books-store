@@ -14,25 +14,27 @@ export const SideBar = () => {
       <div>
         <div>
           <Link className="linkNav" to={"/"}>
-            <div className="bgIcon">
+            <div tabIndex={1} className="bgIcon">
               <BiHomeHeart className="iconSideBar" />
             </div>
           </Link>
         </div>
         <div>
-          <div className="bgIcon">
+          <div tabIndex={2} className="bgIcon">
             <MdMenuBook className="iconSideBar" />
           </div>
         </div>
         <div>
-          <div className="bgIcon">
+          <div tabIndex={3} className="bgIcon">
             <BsEyeglasses className="iconSideBar" />
           </div>
         </div>
         <div>
-          <div className="bgIcon">
-            <MdTurnedInNot className="iconSideBar" />
-          </div>
+          <Link className="linkNav" to={"/saved"}>
+            <div tabIndex={4} className="bgIcon">
+              <MdTurnedInNot className="iconSideBar" />
+            </div>
+          </Link>
         </div>
       </div>
       <div>
