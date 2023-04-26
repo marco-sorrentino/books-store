@@ -29,6 +29,7 @@ export interface SingleBookProps {
       subtitle?: string;
       pageCount?: number;
       publishedDate?: string;
+      categories?: string;
     };
   };
 }

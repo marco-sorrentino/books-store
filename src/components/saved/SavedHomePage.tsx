@@ -1,10 +1,11 @@
 import { Col, Row } from "react-bootstrap";
+import { SavedBooks } from "./SavedBooks";
 
 export const SavedHomePage = () => {
   return (
     <div>
       <Row>
-        <Col></Col>
+        <SavedBooks />
       </Row>
     </div>
   );
