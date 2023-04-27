@@ -37,41 +37,43 @@ export const SearchHomePage = () => {
 
   return (
     <>
-      <div className="px-4 pt-4 d-flex align-items-center justify-content-between">
-        <div className="d-flex align-items-center">
-          <p className="homepageTitle">Find Your Books</p>
+      <div className="searchHome">
+        <div className="px-4 pt-4 d-flex align-items-center justify-content-between">
+          <div className="d-flex align-items-center">
+            <p className="homepageTitle">Find Your Books</p>
+          </div>
+          <div className="hrLine"></div>
         </div>
-        <div className="hrLine"></div>
-      </div>
-      <div className="px-4">
-        <Form onSubmit={handleSubmit}>
-          <Form.Control
-            placeholder="Search"
-            type="text"
-            className="input"
-            name=""
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </Form>
-      </div>
-      <div className="px-4 mt-4">
-        <Row>
-          {data &&
-            data.map((el, i) => {
-              return (
-                <Col md={2} className="mt-4 mt-md-0">
-                  <SingleBook
-                    key={i}
-                    title={el?.volumeInfo?.title}
-                    cover={el?.volumeInfo?.imageLinks?.thumbnail}
-                    authors={el?.volumeInfo?.authors}
-                    obj={el}
-                  />
-                </Col>
-              );
-            })}
-        </Row>
+        <div className="px-4">
+          <Form onSubmit={handleSubmit}>
+            <Form.Control
+              placeholder="Search"
+              type="text"
+              className="input"
+              name="Search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </Form>
+        </div>
+        <div className="px-4 mt-4">
+          <Row>
+            {data &&
+              data.map((el, i) => {
+                return (
+                  <Col md={2} className="mt-4 mb-3 mt-md-0">
+                    <SingleBook
+                      key={i}
+                      title={el?.volumeInfo?.title}
+                      cover={el?.volumeInfo?.imageLinks?.thumbnail}
+                      authors={el?.volumeInfo?.authors}
+                      obj={el}
+                    />
+                  </Col>
+                );
+              })}
+          </Row>
+        </div>
       </div>
     </>
   );

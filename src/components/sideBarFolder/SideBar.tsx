@@ -20,9 +20,11 @@ export const SideBar = () => {
           </Link>
         </div>
         <div>
-          <div tabIndex={2} className="bgIcon">
-            <MdMenuBook className="iconSideBar" />
-          </div>
+          <Link className="linkNav" to={"/search"}>
+            <div tabIndex={2} className="bgIcon">
+              <MdMenuBook className="iconSideBar" />
+            </div>
+          </Link>
         </div>
         <div>
           <div tabIndex={3} className="bgIcon">
