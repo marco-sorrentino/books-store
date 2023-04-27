@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
+import { Book } from "../../types/book";
+import { SingleBook } from "../homepage/SingleBook";
+import "./search.scss";
 
 export const SearchHomePage = () => {
-  const [search, setSearch] = useState("");
-  const [data, setData] = useState([]);
+  const [search, setSearch] = useState("harry potter");
+  const [data, setData] = useState<Book[]>([]);
   const key = "AIzaSyBPPH3NK6VX2qM400hCqOvQOt0deBt1HX4";
 
   console.log(search);
@@ -33,18 +36,43 @@ export const SearchHomePage = () => {
   };
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="px-4 pt-4 d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center">
+          <p className="homepageTitle">Find Your Books</p>
+        </div>
+        <div className="hrLine"></div>
+      </div>
+      <div className="px-4">
         <Form onSubmit={handleSubmit}>
           <Form.Control
             placeholder="Search"
-            className=""
+            type="text"
+            className="input"
             name=""
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </Form>
       </div>
-    </div>
+      <div className="px-4 mt-4">
+        <Row>
+          {data &&
+            data.map((el, i) => {
+              return (
+                <Col md={2} className="mt-4 mt-md-0">
+                  <SingleBook
+                    key={i}
+                    title={el?.volumeInfo?.title}
+                    cover={el?.volumeInfo?.imageLinks?.thumbnail}
+                    authors={el?.volumeInfo?.authors}
+                    obj={el}
+                  />
+                </Col>
+              );
+            })}
+        </Row>
+      </div>
+    </>
   );
 };
