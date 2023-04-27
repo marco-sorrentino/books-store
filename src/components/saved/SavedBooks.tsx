@@ -1,15 +1,15 @@
-import { Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Button, Col, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getDetailsAction } from "../../redux/action";
 import { SingleBookProps } from "../../types/book";
 import "./saved.scss";
 
-export const SavedBooks = () => {
+export const SavedBooks = (props: SingleBookProps) => {
   const seeSaved = useSelector(
     (state: { saved: SingleBookProps[] }) => state.saved
   );
   console.log("LIBRI SALVATI", seeSaved);
-  const navigate = useNavigate();
 
   return (
     <>
@@ -26,12 +26,7 @@ export const SavedBooks = () => {
             return el.obj?.volumeInfo?.categories === undefined ? (
               <Button className="ctaFilter ms-2">Other</Button>
             ) : (
-              <Button
-                onClick={() => {
-                  navigate("/" + el.obj?.volumeInfo?.categories);
-                }}
-                className="ctaFilter ms-2"
-              >
+              <Button className="ctaFilter ms-2">
                 {el.obj?.volumeInfo?.categories}
               </Button>
             );

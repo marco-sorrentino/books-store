@@ -7,6 +7,7 @@ export const SavedHomePage = () => {
     <div>
       <Row className="m-0">
         <SavedBooks />
+        <FilteredSavedBooks />
       </Row>
     </div>
   );

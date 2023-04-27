@@ -6,6 +6,7 @@ import { BookDetail } from "./components/homepage/BookDetail";
 import { HomePage } from "./components/homepage/HomePage";
 import { FilteredSavedBooks } from "./components/saved/FilteredSavedBooks";
 import { SavedHomePage } from "./components/saved/SavedHomePage";
+import { SearchHomePage } from "./components/search/SearchHomePage";
 import { SideBar } from "./components/sideBarFolder/SideBar";
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/saved" element={<SavedHomePage />} />
                 <Route path="/detail" element={<BookDetail />} />
-                <Route path="/:filter/" element={<FilteredSavedBooks />} />
+                {/* <Route path="/:filter/" element={<FilteredSavedBooks />} /> */}
+                <Route path="/search" element={<SearchHomePage />} />
               </Routes>
             </Col>
           </Row>
