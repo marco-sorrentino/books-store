@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Container fluid>
-          <Row>
+          <Row className="me-0">
             <Col className="p-0" md={1} xs={2}>
               <SideBar />
             </Col>
