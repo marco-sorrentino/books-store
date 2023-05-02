@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Book } from "../../types/book";
 import { SingleBook } from "./SingleBook";
+import Spinner from "react-bootstrap/Spinner";
 
 export const BestReview = () => {
   const [review, setReview] = useState<Book[]>([]);
-  console.log(review);
+  const [loading, setLoading] = useState(true);
   const key = "AIzaSyBPPH3NK6VX2qM400hCqOvQOt0deBt1HX4";
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export const BestReview = () => {
       if (res.ok) {
         let data = await res.json();
         setReview(data.items);
+        setLoading(false);
       }
     } catch (error) {
       console.log(error);
@@ -34,20 +36,26 @@ export const BestReview = () => {
         <div className="hrLine"></div>
       </div>
       <div className="px-4 pt-2 ">
-        <Row className="rowBooks">
-          {review &&
-            review.map((el, i) => (
-              <Col className="mt-3 mt-md-0">
-                <SingleBook
-                  key={i}
-                  title={el.volumeInfo.title}
-                  cover={el?.volumeInfo?.imageLinks.thumbnail}
-                  authors={el.volumeInfo.authors}
-                  obj={el}
-                />
-              </Col>
-            ))}
-        </Row>
+        {loading ? (
+          <div className="d-flex justify-content-center mt-5">
+            <Spinner animation="border" />
+          </div>
+        ) : (
+          <Row className="rowBooks">
+            {review &&
+              review.map((el, i) => (
+                <Col className="mt-3 mt-md-0">
+                  <SingleBook
+                    key={i}
+                    title={el.volumeInfo.title}
+                    cover={el?.volumeInfo?.imageLinks.thumbnail}
+                    authors={el.volumeInfo.authors}
+                    obj={el}
+                  />
+                </Col>
+              ))}
+          </Row>
+        )}
       </div>
     </>
   );

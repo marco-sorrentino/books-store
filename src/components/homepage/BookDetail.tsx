@@ -5,12 +5,14 @@ import { BsEyeglasses } from "react-icons/bs";
 import { MdTurnedInNot } from "react-icons/md";
 import "./homepage.scss";
 import { GET_READS, GET_SAVED } from "../../redux/action";
+import { useState } from "react";
+import Spinner from "react-bootstrap/Spinner";
 
 export const BookDetail = () => {
   const seeDetail = useSelector(
     (state: { books: SingleBookProps[] }) => state.books
   );
-  console.log(seeDetail);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const key = "AIzaSyBPPH3NK6VX2qM400hCqOvQOt0deBt1HX4";
   const dispatch = useDispatch();
 
@@ -29,8 +31,13 @@ export const BookDetail = () => {
                   </div>
 
                   <div className="d-flex align-items-center flex-column flex-md-row">
+                    {!imageLoaded && (
+                      <div className="">
+                        <Spinner animation="border" />
+                      </div>
+                    )}
                     <img
-                      className="pt-4"
+                      className={imageLoaded ? "pt-4" : "d-none"}
                       src={
                         "https://books.google.com/books/content?id=" +
                         el.obj?.id +
@@ -38,6 +45,7 @@ export const BookDetail = () => {
                         key
                       }
                       alt="cover"
+                      onLoad={() => setImageLoaded(true)}
                     />
                     <div className="px-md-4 mt-4 mt-md-0">
                       <p className="author mb-3">{el.authors}</p>
