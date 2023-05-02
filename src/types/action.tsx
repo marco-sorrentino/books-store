@@ -14,3 +14,8 @@ export interface AddReadsAction {
   type: "GET_READS";
   payload: Book;
 }
+
+export interface RemoveSavedAction {
+  type: "REMOVE_SAVED";
+  payload: Book;
+}

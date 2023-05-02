@@ -20,9 +20,9 @@ export const BookDetail = () => {
     <div className="h-100  boh">
       <Row className="m-0">
         {seeDetail &&
-          seeDetail.map((el) => {
+          seeDetail.map((el, i) => {
             return (
-              <Col sm={12} className="p-0">
+              <Col key={i} sm={12} className="p-0">
                 <div className="boxBook px-4 py-4 d-flex align-items-start justify-content-between flex-column">
                   <div className="w-100">
                     <p className="bookTitle mb-3">{el.title}</p>

@@ -45,9 +45,8 @@ export const MostPopular = () => {
           <Row className="rowBooks">
             {popular &&
               popular.map((el, i) => (
-                <Col className="mt-3 mt-md-0">
+                <Col key={i} className="mt-3 mt-md-0">
                   <SingleBook
-                    key={i}
                     title={el.volumeInfo.title}
                     cover={el?.volumeInfo?.imageLinks.thumbnail}
                     authors={el.volumeInfo.authors}

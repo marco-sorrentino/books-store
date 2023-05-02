@@ -3,15 +3,19 @@ import {
   getDetailsAction,
   getReadsAction,
   getSavedAction,
+  removeSavedAction,
 } from "../../redux/action";
 import { SingleBookProps } from "../../types/book";
 import { BsEyeglasses } from "react-icons/bs";
 import { MdTurnedInNot } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { BsFillBookmarkFill } from "react-icons/bs";
 
 export const SingleBook = (props: SingleBookProps) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [toggle, setToggle] = useState(true);
 
   //Funzione per salvare su redux con DISPATCH i dettagli dei libri
 
@@ -23,6 +27,12 @@ export const SingleBook = (props: SingleBookProps) => {
 
   const handleSaved = () => {
     dispatch(getSavedAction(props));
+  };
+
+  //Funzione per rimuovere libri salvati
+
+  const handleRemove = () => {
+    dispatch(removeSavedAction(props));
   };
 
   //Funzione per salvare su redux con DISPATCH i libri letti dall'utente
@@ -64,7 +74,23 @@ export const SingleBook = (props: SingleBookProps) => {
             View More
           </p>
           <div>
-            <MdTurnedInNot onClick={handleSaved} className="me-1 savingIcon" />
+            {toggle === true ? (
+              <MdTurnedInNot
+                onClick={() => {
+                  handleSaved();
+                  setToggle(!toggle);
+                }}
+                className="me-1 savingIcon"
+              />
+            ) : (
+              <BsFillBookmarkFill
+                onClick={() => {
+                  handleRemove();
+                  setToggle(!toggle);
+                }}
+                className="me-1 savingIcon"
+              />
+            )}
             <BsEyeglasses
               onClick={handleReads}
               style={{ fontSize: "1.2em" }}
